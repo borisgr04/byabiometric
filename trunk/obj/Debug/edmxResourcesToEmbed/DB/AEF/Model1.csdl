@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="fpEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="enroll" EntityType="testModel.enroll" />
+  </EntityContainer>
+  <EntityType Name="enroll">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="template" Type="Binary" MaxLength="65535" FixedLength="false" />
+    <Property Name="quality" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

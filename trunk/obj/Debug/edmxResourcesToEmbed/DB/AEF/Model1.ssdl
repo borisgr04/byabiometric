@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="testModelStoreContainer">
+    <EntitySet Name="enroll" EntityType="testModel.Store.enroll" store:Type="Tables" Schema="test" />
+  </EntityContainer>
+  <EntityType Name="enroll">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="template" Type="blob" />
+    <Property Name="quality" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>
