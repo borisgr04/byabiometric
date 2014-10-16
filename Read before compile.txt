@@ -1,0 +1,13 @@
+To avoid errors during the project compilation because of different settings of the users' computers, the Fingerprint SDK 2009 samples must be set to the right path where the SDK was installed.
+
+For the projects using .NET component:
+- The directory which is placed the file GriauleFingerprintLibrary.dll must be included in the "Reference Path" of the project.
+
+For the projects using DLL:
+- The directory which is placed the file GrFinger.h must be included in the field "Additional Include Directories" of  C/C++ property page.
+- The directory which is placed the file GrFinger.lib must be included in the field "Additional Libraries Directories" of Linker property page.
+
+For the projects using Java:
+- The variable DLLDIR in the file make_win32.bat must be set to the directory which is placed the file grfingerjava.jar.
+
+It is not necessary any additional configuration for the projects using ActiveX.
