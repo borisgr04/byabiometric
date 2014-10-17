@@ -132,6 +132,18 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="gPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gPersonas.Designer.cs">
+      <DependentUpon>gPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevaPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevaPersona.Designer.cs">
+      <DependentUpon>NuevaPersona.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerifyDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +167,12 @@
     <EmbeddedResource Include="frmMain.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gPersonas.resx">
+      <DependentUpon>gPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevaPersona.resx">
+      <DependentUpon>NuevaPersona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerifyDialog.resx">
       <SubType>Designer</SubType>
@@ -226,6 +244,10 @@
     <ProjectReference Include="BLL\BLL.csproj">
       <Project>{dec01159-44ba-48f5-a632-8e1e663592fb}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Orley\Desktop\ByA\ByA.csproj">
+      <Project>{29846646-2ce1-4ee3-b9ea-7bf9b50b1fed}</Project>
+      <Name>ByA</Name>
     </ProjectReference>
     <ProjectReference Include="Entidades\Entidades.csproj">
       <Project>{f2fc58bf-031b-427a-b932-fd0365e84198}</Project>
