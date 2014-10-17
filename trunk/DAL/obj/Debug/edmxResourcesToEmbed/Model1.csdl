@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_esModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bd_esEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="enroll" EntityType="bd_esModel.enroll" />
+    <EntitySet Name="es_terceros" EntityType="bd_esModel.es_terceros" />
+    <AssociationSet Name="indice_idFK" Association="bd_esModel.indice_idFK">
+      <End Role="enroll" EntitySet="enroll" />
+      <End Role="es_terceros" EntitySet="es_terceros" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="enroll">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="template" Type="Binary" MaxLength="65535" FixedLength="false" />
+    <Property Name="quality" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="es_terceros" Relationship="bd_esModel.indice_idFK" FromRole="enroll" ToRole="es_terceros" />
+  </EntityType>
+  <EntityType Name="es_terceros">
+    <Key>
+      <PropertyRef Name="terceroid" />
+    </Key>
+    <Property Name="terceroid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+    <Property Name="nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="tipodoc" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="tipoper" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="direccion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="telefono" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="correo" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Type="Int32" Name="indice_id" />
+    <NavigationProperty Name="enroll" Relationship="bd_esModel.indice_idFK" FromRole="es_terceros" ToRole="enroll" />
+  </EntityType>
+  <Association Name="indice_idFK">
+    <End Type="bd_esModel.enroll" Role="enroll" Multiplicity="0..1" />
+    <End Type="bd_esModel.es_terceros" Role="es_terceros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enroll">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="es_terceros">
+        <PropertyRef Name="indice_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

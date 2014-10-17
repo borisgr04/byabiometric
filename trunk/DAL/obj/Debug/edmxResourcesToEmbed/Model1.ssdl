@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_esModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="bd_esModelStoreContainer">
+    <EntitySet Name="enroll" EntityType="bd_esModel.Store.enroll" store:Type="Tables" Schema="bd_es" />
+    <EntitySet Name="es_terceros" EntityType="bd_esModel.Store.es_terceros" store:Type="Tables" Schema="bd_es" />
+    <AssociationSet Name="indice_idFK" Association="bd_esModel.Store.indice_idFK">
+      <End Role="enroll" EntitySet="enroll" />
+      <End Role="es_terceros" EntitySet="es_terceros" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="enroll">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="template" Type="blob" />
+    <Property Name="quality" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="es_terceros">
+    <Key>
+      <PropertyRef Name="terceroid" />
+    </Key>
+    <Property Name="terceroid" Type="varchar" Nullable="false" MaxLength="12" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" />
+    <Property Name="tipodoc" Type="varchar" MaxLength="2" />
+    <Property Name="tipoper" Type="varchar" MaxLength="2" />
+    <Property Name="direccion" Type="varchar" MaxLength="45" />
+    <Property Name="telefono" Type="varchar" MaxLength="45" />
+    <Property Name="correo" Type="varchar" MaxLength="45" />
+    <Property Name="indice_id" Type="int" />
+  </EntityType>
+  <Association Name="indice_idFK">
+    <End Role="enroll" Type="bd_esModel.Store.enroll" Multiplicity="0..1" />
+    <End Role="es_terceros" Type="bd_esModel.Store.es_terceros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enroll">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="es_terceros">
+        <PropertyRef Name="indice_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

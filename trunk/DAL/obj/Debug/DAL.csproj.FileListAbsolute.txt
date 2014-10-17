@@ -1,0 +1,10 @@
+E:\Instaladores\CrackGriaule\DAL\bin\Debug\DAL.dll.config
+E:\Instaladores\CrackGriaule\DAL\bin\Debug\DAL.dll
+E:\Instaladores\CrackGriaule\DAL\bin\Debug\DAL.pdb
+E:\Instaladores\CrackGriaule\DAL\bin\Debug\EntityFramework.dll
+E:\Instaladores\CrackGriaule\DAL\bin\Debug\EntityFramework.xml
+E:\Instaladores\CrackGriaule\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\Instaladores\CrackGriaule\DAL\obj\Debug\DAL.dll
+E:\Instaladores\CrackGriaule\DAL\obj\Debug\DAL.pdb
+E:\Instaladores\CrackGriaule\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Instaladores\CrackGriaule\DAL\bin\Debug\EntityFramework.SqlServer.xml
