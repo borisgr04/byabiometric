@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bd_esModelStoreContainer" CdmEntityContainer="bd_esEntities">
+    <EntitySetMapping Name="enroll">
+      <EntityTypeMapping TypeName="bd_esModel.enroll">
+        <MappingFragment StoreEntitySet="enroll">
+          <ScalarProperty Name="template" ColumnName="template" />
+          <ScalarProperty Name="quality" ColumnName="quality" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="es_terceros">
+      <EntityTypeMapping TypeName="bd_esModel.es_terceros">
+        <MappingFragment StoreEntitySet="es_terceros">
+          <ScalarProperty Name="indice_id" ColumnName="indice_id" />
+          <ScalarProperty Name="terceroid" ColumnName="terceroid" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="tipoper" ColumnName="tipoper" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

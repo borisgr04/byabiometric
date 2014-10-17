@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bd_esModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="bd_esModelStoreContainer">
+          <EntitySet Name="enroll" EntityType="bd_esModel.Store.enroll" store:Type="Tables" Schema="bd_es" />
+          <EntitySet Name="es_terceros" EntityType="bd_esModel.Store.es_terceros" store:Type="Tables" Schema="bd_es" />
+          <AssociationSet Name="indice_idFK" Association="bd_esModel.Store.indice_idFK">
+            <End Role="enroll" EntitySet="enroll" />
+            <End Role="es_terceros" EntitySet="es_terceros" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="enroll">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="template" Type="blob" />
+          <Property Name="quality" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="es_terceros">
+          <Key>
+            <PropertyRef Name="terceroid" />
+          </Key>
+          <Property Name="terceroid" Type="varchar" Nullable="false" MaxLength="12" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" />
+          <Property Name="tipodoc" Type="varchar" MaxLength="2" />
+          <Property Name="tipoper" Type="varchar" MaxLength="2" />
+          <Property Name="direccion" Type="varchar" MaxLength="45" />
+          <Property Name="telefono" Type="varchar" MaxLength="45" />
+          <Property Name="correo" Type="varchar" MaxLength="45" />
+          <Property Name="indice_id" Type="int" />
+        </EntityType>
+        <Association Name="indice_idFK">
+          <End Role="enroll" Type="bd_esModel.Store.enroll" Multiplicity="0..1" />
+          <End Role="es_terceros" Type="bd_esModel.Store.es_terceros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="enroll">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="es_terceros">
+              <PropertyRef Name="indice_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bd_esModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="bd_esEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="enroll" EntityType="bd_esModel.enroll" />
+          <EntitySet Name="es_terceros" EntityType="bd_esModel.es_terceros" />
+          <AssociationSet Name="indice_idFK" Association="bd_esModel.indice_idFK">
+            <End Role="enroll" EntitySet="enroll" />
+            <End Role="es_terceros" EntitySet="es_terceros" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="enroll">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="template" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="quality" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="es_terceros" Relationship="bd_esModel.indice_idFK" FromRole="enroll" ToRole="es_terceros" />
+        </EntityType>
+        <EntityType Name="es_terceros">
+          <Key>
+            <PropertyRef Name="terceroid" />
+          </Key>
+          <Property Name="terceroid" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+          <Property Name="nombre" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="tipodoc" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="tipoper" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="direccion" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="telefono" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="correo" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Type="Int32" Name="indice_id" />
+          <NavigationProperty Name="enroll" Relationship="bd_esModel.indice_idFK" FromRole="es_terceros" ToRole="enroll" />
+        </EntityType>
+        <Association Name="indice_idFK">
+          <End Type="bd_esModel.enroll" Role="enroll" Multiplicity="0..1" />
+          <End Type="bd_esModel.es_terceros" Role="es_terceros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="enroll">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="es_terceros">
+              <PropertyRef Name="indice_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bd_esModelStoreContainer" CdmEntityContainer="bd_esEntities">
+          <EntitySetMapping Name="enroll">
+            <EntityTypeMapping TypeName="bd_esModel.enroll">
+              <MappingFragment StoreEntitySet="enroll">
+                <ScalarProperty Name="template" ColumnName="template" />
+                <ScalarProperty Name="quality" ColumnName="quality" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="es_terceros">
+            <EntityTypeMapping TypeName="bd_esModel.es_terceros">
+              <MappingFragment StoreEntitySet="es_terceros">
+                <ScalarProperty Name="indice_id" ColumnName="indice_id" />
+                <ScalarProperty Name="terceroid" ColumnName="terceroid" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+                <ScalarProperty Name="tipoper" ColumnName="tipoper" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
