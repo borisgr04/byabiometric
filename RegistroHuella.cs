@@ -9,16 +9,19 @@ using GriauleFingerprintLibrary;
 using GriauleFingerprintLibrary.Exceptions;
 using FingerprintNetSample.DB;
 using BLL;
+using ByA;
+using Entidades;
 
 namespace FingerprintNetSample
 {
-    public partial class frmMain : Form
+    public partial class RegistroHuella : Form
     {
-        public frmMain()
+        public RegistroHuella(string idPersona, int idHuella)
         {
             InitializeComponent();
             fingerPrint = new FingerprintCore();
-
+            idPersonaGlobal = idPersona;
+            idHuellaPersonaGlobal = idHuella;
             fingerPrint.onStatus += new StatusEventHandler(fingerPrint_onStatus);
             fingerPrint.onFinger += new FingerEventHandler(fingerPrint_onFinger);
             fingerPrint.onImage += new ImageEventHandler(fingerPrint_onImage);
@@ -26,7 +29,10 @@ namespace FingerprintNetSample
             fopt = new formOption();
         }
         //private bool consolidate = false;
+        private bool PermisoGuardar = true;
         private formOption fopt;
+        private string idPersonaGlobal;
+        private int idHuellaPersonaGlobal;
         private FingerprintCore fingerPrint;
         private GriauleFingerprintLibrary.DataTypes.FingerprintRawImage rawImage;
         GriauleFingerprintLibrary.DataTypes.FingerprintTemplate _template;
@@ -73,12 +79,12 @@ namespace FingerprintNetSample
             SetFingerStatus(ie.Source, 2);
             rawImage = ie.RawImage;
             SetImage(ie.RawImage.Image);
-            if (autoExtractToolStripMenuItem.Checked) 
+            if (true) 
             {
                // buttonClick(button1);
                 ExtractTemplate();
 
-                if (autoIdentifyToolStripMenuItem.Checked) 
+                if (true) 
                 {
                     System.Threading.Thread.Sleep(100);
                    // buttonClick(button3);
@@ -305,17 +311,18 @@ namespace FingerprintNetSample
                             int score;
                             if (Identify(testTemplate, out score))
                             {
-
+                                PermisoGuardar = false;
                                 SetMatchBar(score, Color.SeaGreen);
-                                SetStatusMessage("Template Matched" + item.ID.ToString());
+                                string NombrePersona = GetPersonaId(item.ID).nombre;
+                                SetStatusMessage("Huella existente: " + NombrePersona);
                                 DisplayImage(_template, true);
-
                                 return;
                             }
                             else
                             {
+                                PermisoGuardar = true;
                                 SetMatchBar(score, Color.LightCoral);
-                                SetStatusMessage("Template Unmatched");
+                                SetStatusMessage("No se encontro huella");
                             }
                     }
 
@@ -341,7 +348,13 @@ namespace FingerprintNetSample
             }
         }
 
-   
+        private es_tercerosDto GetPersonaId(int idHuella)
+        {
+            mPersonas objPersonas = new mPersonas();
+            es_tercerosDto persona = objPersonas.GetPorIdHuella(idHuella);
+            return persona;
+        }
+
         private delegate void delSetStatusMessage(string message);
         private void SetStatusMessage(string message) 
         {
@@ -564,22 +577,52 @@ namespace FingerprintNetSample
         {
             try
             {
-                if (_template == null) 
+                if (PermisoGuardar == true)
                 {
-                    MessageBox.Show("Error, Null template");
-                    return;
+                    if (_template == null)
+                    {
+                        MessageBox.Show("Error...");
+                        return;
+                    }
+                    mEnroll dl = new mEnroll();
+                    FingerprintTemplateDTO _templateDTO = new FingerprintTemplateDTO();
+
+                    _templateDTO.Buffer = _template.Buffer;
+                    _templateDTO.Quality = _template.Quality;
+                    dl.SaveTemplate(_templateDTO);
+
+                    EliminarHuellaAntigua();
+
+                    int IIdUltimoTemplate = GetIdHuellaActual();
+                    ByARpt ResAsigHuella = AsignarHuellaPersona(IIdUltimoTemplate);
+                    MessageBox.Show("Se asigno huella a la persona...");
+                    this.Close();
+                    //IGRDal dl = DalFactory.GetDal(GrConnector.AccessDal);
+                    //dl.SaveTemplate(_template);
                 }
-                mEnroll dl = new mEnroll();
-                FingerprintTemplateDTO _templateDTO = new FingerprintTemplateDTO();
-
-                _templateDTO.Buffer = _template.Buffer;
-                _templateDTO.Quality = _template.Quality;
-                dl.SaveTemplate(_templateDTO);
-
-                //IGRDal dl = DalFactory.GetDal(GrConnector.AccessDal);
-                //dl.SaveTemplate(_template);
+                else
+                {
+                    MessageBox.Show("No se puede guardar, esta huella ya esta registrada...");
+                }
             }
             catch { }
+        }
+
+        private void EliminarHuellaAntigua()
+        {
+            mEnroll objEnroll = new mEnroll();
+            objEnroll.DeleteTemplate(idHuellaPersonaGlobal);
+        }
+
+        private ByARpt  AsignarHuellaPersona(int idHuella){
+            mPersonas objPersona = new mPersonas();
+            return objPersona.AsignarCodigoHuellaPersona(idPersonaGlobal, idHuella);
+        }
+
+        private int GetIdHuellaActual()
+        {
+            mEnroll objEnroll = new mEnroll();
+            return objEnroll.GetIdUltimoTemplate();
         }
 
         private void identifyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -629,10 +672,7 @@ namespace FingerprintNetSample
         {
             if (((ToolStripMenuItem)sender).Checked == true) 
             {
-                if (autoExtractToolStripMenuItem.Checked == false) 
-                {
-                    autoExtractToolStripMenuItem.Checked = true;
-                }
+                
             }
         }
 
@@ -642,6 +682,16 @@ namespace FingerprintNetSample
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void dBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enrollToolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
         }
