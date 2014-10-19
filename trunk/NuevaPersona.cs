@@ -46,5 +46,21 @@ namespace FingerprintNetSample
         {
 
         }
+
+        private void btnRestablecer_Click(object sender, EventArgs e)
+        {
+            txtNombre.Text = "";
+            txtIdentificacion.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
+            txtCorreo.Text = "";
+            cboTipoDocumento.Text = "";
+            cboTipoPersona.Text = "";
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

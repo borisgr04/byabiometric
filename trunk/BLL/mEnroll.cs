@@ -16,6 +16,8 @@ namespace BLL
 
     public class mEnroll
     {
+        bd_esEntities ctx;
+
         public void SaveTemplate(FingerprintTemplateDTO fingerPrintTemplate)
         {
 
@@ -53,6 +55,17 @@ namespace BLL
             return lst;
         }
 
+        public int GetIdUltimoTemplate()
+        {
+            int IdUltimaHuella;
+            using (bd_esEntities db = new bd_esEntities())
+            {
+                enroll Huella = db.enroll.OrderByDescending(t => t.ID).FirstOrDefault();
+                IdUltimaHuella = Huella.ID;
+            }
+            return IdUltimaHuella;
+        }
+
         public FingerprintTemplateDTO GetTemplate(int idTemplate)
         {
             FingerprintTemplateDTO fpt;
@@ -72,7 +85,21 @@ namespace BLL
 
         public void DeleteTemplate(int idTemplate)
         {
-            throw new NotImplementedException();
+            using (ctx = new bd_esEntities())
+            {
+                enroll huella = ctx.enroll.Where(t => t.ID == idTemplate).FirstOrDefault();
+                if (huella != null)
+                {
+                    ctx.enroll.Remove(huella);
+                    try
+                    {
+                        ctx.SaveChanges();
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
         }
 
         public void DeleteTemplate()

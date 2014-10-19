@@ -1,6 +1,6 @@
 ﻿namespace FingerprintNetSample
 {
-    partial class NuevaPersona
+    partial class EditarPersona
     {
         /// <summary>
         /// Required designer variable.
@@ -51,30 +51,30 @@
             // 
             // btnRestablecer
             // 
-            this.btnRestablecer.Location = new System.Drawing.Point(137, 340);
+            this.btnRestablecer.Location = new System.Drawing.Point(138, 338);
             this.btnRestablecer.Name = "btnRestablecer";
             this.btnRestablecer.Size = new System.Drawing.Size(75, 33);
-            this.btnRestablecer.TabIndex = 22;
+            this.btnRestablecer.TabIndex = 26;
             this.btnRestablecer.Text = "Restablecer";
             this.btnRestablecer.UseVisualStyleBackColor = true;
             this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(218, 340);
+            this.btnCancelar.Location = new System.Drawing.Point(219, 338);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 33);
-            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(56, 340);
+            this.btnGuardar.Location = new System.Drawing.Point(57, 338);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 33);
-            this.btnGuardar.TabIndex = 20;
+            this.btnGuardar.TabIndex = 24;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -95,10 +95,10 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDireccion);
-            this.groupBox1.Location = new System.Drawing.Point(21, 26);
+            this.groupBox1.Location = new System.Drawing.Point(22, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(320, 299);
-            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
@@ -223,18 +223,18 @@
             this.txtDireccion.Size = new System.Drawing.Size(162, 20);
             this.txtDireccion.TabIndex = 7;
             // 
-            // NuevaPersona
+            // EditarPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 395);
+            this.ClientSize = new System.Drawing.Size(373, 397);
             this.Controls.Add(this.btnRestablecer);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
-            this.Name = "NuevaPersona";
-            this.Text = "Nueva Persona";
-            this.Load += new System.EventHandler(this.NuevaPersona_Load);
+            this.Name = "EditarPersona";
+            this.Text = "EditarPersona";
+            this.Load += new System.EventHandler(this.EditarPersona_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -261,5 +261,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDireccion;
+
     }
 }
