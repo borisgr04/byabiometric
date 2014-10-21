@@ -9,6 +9,7 @@
           <EntitySet Name="enroll" EntityType="bd_esModel.Store.enroll" store:Type="Tables" Schema="bd_es" />
           <EntitySet Name="es_entradassalidas" EntityType="bd_esModel.Store.es_entradassalidas" store:Type="Tables" Schema="bd_es" />
           <EntitySet Name="es_terceros" EntityType="bd_esModel.Store.es_terceros" store:Type="Tables" Schema="bd_es" />
+          <EntitySet Name="usuarios" EntityType="bd_esModel.Store.usuarios" store:Type="Tables" Schema="bd_es" />
         </EntityContainer>
         <EntityType Name="enroll">
           <Key>
@@ -45,6 +46,15 @@
           <Property Name="correo" Type="varchar" MaxLength="45" />
           <Property Name="indice_id" Type="int" />
         </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Usuario" Type="varchar" MaxLength="15" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="45" />
+          <Property Name="Rol" Type="varchar" MaxLength="45" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -53,6 +63,7 @@
           <EntitySet Name="enroll" EntityType="bd_esModel.enroll" />
           <EntitySet Name="es_terceros" EntityType="bd_esModel.es_terceros" />
           <EntitySet Name="es_entradassalidas" EntityType="bd_esModel.es_entradassalidas" />
+          <EntitySet Name="usuarios" EntityType="bd_esModel.usuarios" />
         </EntityContainer>
         <EntityType Name="enroll">
           <Key>
@@ -85,6 +96,15 @@
           <Property Type="DateTime" Name="FechaEntrada" />
           <Property Type="DateTime" Name="FechaSalida" />
           <Property Type="String" Name="Estado" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="String" Name="Usuario" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Contraseña" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Rol" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -123,6 +143,16 @@
                 <ScalarProperty Name="FechaEntrada" ColumnName="FechaEntrada" />
                 <ScalarProperty Name="idTercero" ColumnName="idTercero" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="bd_esModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

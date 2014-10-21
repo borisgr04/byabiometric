@@ -10,26 +10,28 @@ using System.Windows.Forms;
 
 namespace FingerprintNetSample
 {
-    public partial class Principal : Form
+    public partial class PrincipalAdmin : Form
     {
-        public Principal()
+        public PrincipalAdmin()
         {
             InitializeComponent();
         }
 
         private void registroEntradaYSalidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RegistrosES frm = new RegistrosES();
+            gPersonas frm = new gPersonas();
             frm.MdiParent = this;
             frm.Show();
         }
 
-        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PrincipalAdmin_Load(object sender, EventArgs e)
         {
-            Reporte frm = new Reporte();
+            gPersonas frm = new gPersonas();
             frm.MdiParent = this;
             frm.Show();
         }
+
+       
 
 
     }
