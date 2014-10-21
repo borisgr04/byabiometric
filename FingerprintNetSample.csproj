@@ -93,11 +93,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bd_esDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bd_esDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ColorProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,11 +105,17 @@
     <Compile Include="Consolidation.Designer.cs">
       <DependentUpon>Consolidation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrincipalAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrincipalAdmin.Designer.cs">
+      <DependentUpon>PrincipalAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistroESCedula.cs">
       <SubType>Form</SubType>
@@ -183,12 +184,6 @@
     <Compile Include="NuevaPersona.Designer.cs">
       <DependentUpon>NuevaPersona.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporte.Designer.cs">
-      <DependentUpon>Reporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="VerifyDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,8 +200,11 @@
       <SubType>Designer</SubType>
       <DependentUpon>Consolidation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrincipalAdmin.resx">
+      <DependentUpon>PrincipalAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistroESCedula.resx">
       <DependentUpon>RegistroESCedula.cs</DependentUpon>
@@ -236,10 +234,6 @@
     <EmbeddedResource Include="NuevaPersona.resx">
       <DependentUpon>NuevaPersona.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Reporte.resx">
-      <DependentUpon>Reporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VerifyDialog.resx">
       <SubType>Designer</SubType>
       <DependentUpon>VerifyDialog.cs</DependentUpon>
@@ -261,17 +255,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="bd_esDataSet.xsc">
-      <DependentUpon>bd_esDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bd_esDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bd_esDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bd_esDataSet.xss">
-      <DependentUpon>bd_esDataSet.xsd</DependentUpon>
-    </None>
     <None Include="DB\AEF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -299,11 +282,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\padlock_user_control.png" />
+    <None Include="Resources\padlock_user_control %281%29.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\check %281%29.png" />
+    <None Include="Resources\deletered.png" />
+    <None Include="Resources\padlock_closed.png" />
+    <None Include="Resources\documents.png" />
+    <None Include="Resources\xls.png" />
     <Content Include="sample.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
