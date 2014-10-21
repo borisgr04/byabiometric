@@ -53,6 +53,9 @@
     <Compile Include="enroll.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="es_entradassalidas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="es_terceros.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

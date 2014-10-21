@@ -18,7 +18,6 @@ namespace FingerprintNetSample
 {
     public partial class gPersonas : Form
     {
-
         public gPersonas()
         {
             InitializeComponent();
@@ -27,23 +26,19 @@ namespace FingerprintNetSample
         {
             CargarGrillaPersonas();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             NuevaPersona vNuevaPersona = new NuevaPersona();
             vNuevaPersona.Show();
         }
-
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             CargarGrillaPersonas();
         }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             EditarPersona();
         }
-
         private void CargarGrillaPersonas()
         {
             mPersonas objPersonas = new mPersonas();
@@ -63,12 +58,10 @@ namespace FingerprintNetSample
             EditarPersona vEditarPersona = new EditarPersona(tercero);
             vEditarPersona.Show();
         }
-
         private void dgPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void btnRegistrarHuella_Click(object sender, EventArgs e)
         {
             string Documento = dgPersonas.CurrentRow.Cells[0].Value.ToString();
@@ -77,5 +70,10 @@ namespace FingerprintNetSample
             vRegistroHuella.Show();
         }
 
+        private void huellaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrosES vEntradasSalidas = new RegistrosES();
+            vEntradasSalidas.Show();
+        }
     }
 }

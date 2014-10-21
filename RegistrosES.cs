@@ -14,14 +14,14 @@ using Entidades;
 
 namespace FingerprintNetSample
 {
-    public partial class RegistroHuella : Form
+    public partial class RegistrosES : Form
     {
-        public RegistroHuella(string idPersona, int idHuella)
+        public RegistrosES()
         {
             InitializeComponent();
             fingerPrint = new FingerprintCore();
-            idPersonaGlobal = idPersona;
-            idHuellaPersonaGlobal = idHuella;
+            idPersonaGlobal = "";
+            idHuellaPersonaGlobal = 0;
             fingerPrint.onStatus += new StatusEventHandler(fingerPrint_onStatus);
             fingerPrint.onFinger += new FingerEventHandler(fingerPrint_onFinger);
             fingerPrint.onImage += new ImageEventHandler(fingerPrint_onImage);
@@ -311,23 +311,25 @@ namespace FingerprintNetSample
                             int score;
                             if (Identify(testTemplate, out score))
                             {
-                                PermisoGuardar = false;
                                 SetMatchBar(score, Color.SeaGreen);
-                                string NombrePersona = GetPersonaId(item.ID).nombre;
-                                SetStatusMessage("Huella existente: " + NombrePersona);
+                                es_tercerosDto tercero =  GetPersonaId(item.ID);
+                                string NombrePersona = tercero.nombre;
+                                DateTime hora = DateTime.Now;
+                                mEntradasSalidas objES = new mEntradasSalidas();
+                                ByARpt respuesta = objES.NuevoRegistro(tercero.terceroid);
+                                SetStatusMessage(respuesta.Mensaje + ": " + NombrePersona + " Hora: " + hora);
                                 DisplayImage(_template, true);
                                 return;
                             }
                             else
                             {
-                                PermisoGuardar = true;
                                 SetMatchBar(score, Color.LightCoral);
-                                SetStatusMessage("No se encontro huella");
+                                SetStatusMessage("Huella no encontrada");
                             }
                     }
 
                         SetMatchBar(0, Color.Gray);
-                        SetStatusMessage("Template Unmatched");
+                        SetStatusMessage("Huella no encontrada");
 
                     
                 }

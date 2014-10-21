@@ -1,6 +1,6 @@
 namespace FingerprintNetSample
 {
-    partial class RegistroHuella
+    partial class RegistrosES
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace FingerprintNetSample
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroHuella));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrosES));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lvwFPReaders = new System.Windows.Forms.ListView();
@@ -51,12 +51,6 @@ namespace FingerprintNetSample
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblQuality = new System.Windows.Forms.Label();
-            this.prgbMatching = new FingerprintNetSample.ColorProgressBar();
-            this.prgbQuality = new FingerprintNetSample.ColorProgressBar();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsslStatusMessages = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +61,10 @@ namespace FingerprintNetSample
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsslStatusMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.prgbMatching = new FingerprintNetSample.ColorProgressBar();
+            this.prgbQuality = new FingerprintNetSample.ColorProgressBar();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -77,7 +74,6 @@ namespace FingerprintNetSample
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,7 +82,7 @@ namespace FingerprintNetSample
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(552, 360);
             this.panel1.TabIndex = 1;
@@ -141,7 +137,7 @@ namespace FingerprintNetSample
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.MinimumSize = new System.Drawing.Size(390, 355);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(392, 357);
+            this.pictureBox1.Size = new System.Drawing.Size(392, 359);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -192,9 +188,7 @@ namespace FingerprintNetSample
             // 
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.statusStrip1);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -203,6 +197,7 @@ namespace FingerprintNetSample
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.statusStrip1);
             this.panel3.Controls.Add(this.lblThreshold2);
             this.panel3.Controls.Add(this.lblThreshold);
             this.panel3.Controls.Add(this.label3);
@@ -212,9 +207,9 @@ namespace FingerprintNetSample
             this.panel3.Controls.Add(this.prgbMatching);
             this.panel3.Controls.Add(this.prgbQuality);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 384);
+            this.panel3.Location = new System.Drawing.Point(0, 360);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(552, 131);
+            this.panel3.Size = new System.Drawing.Size(552, 177);
             this.panel3.TabIndex = 4;
             // 
             // lblThreshold2
@@ -270,69 +265,6 @@ namespace FingerprintNetSample
             this.lblQuality.Size = new System.Drawing.Size(99, 13);
             this.lblQuality.TabIndex = 2;
             this.lblQuality.Text = "Calidad de la huella";
-            // 
-            // prgbMatching
-            // 
-            this.prgbMatching.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.prgbMatching.Location = new System.Drawing.Point(3, 87);
-            this.prgbMatching.Maximum = 200;
-            this.prgbMatching.Minimum = 0;
-            this.prgbMatching.Name = "prgbMatching";
-            this.prgbMatching.ProgressBarColor = System.Drawing.Color.Blue;
-            this.prgbMatching.Size = new System.Drawing.Size(549, 23);
-            this.prgbMatching.Step = 0;
-            this.prgbMatching.TabIndex = 1;
-            this.prgbMatching.Value = 0;
-            // 
-            // prgbQuality
-            // 
-            this.prgbQuality.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.prgbQuality.Location = new System.Drawing.Point(3, 20);
-            this.prgbQuality.Maximum = 100;
-            this.prgbQuality.Minimum = 0;
-            this.prgbQuality.Name = "prgbQuality";
-            this.prgbQuality.ProgressBarColor = System.Drawing.Color.WhiteSmoke;
-            this.prgbQuality.Size = new System.Drawing.Size(549, 23);
-            this.prgbQuality.Step = 0;
-            this.prgbQuality.TabIndex = 0;
-            this.prgbQuality.Value = 0;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsslStatusMessage});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 515);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(552, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(552, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // menuToolStripMenuItem
-            // 
-            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.guardarToolStripMenuItem});
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menuToolStripMenuItem.Text = "Menu";
-            // 
-            // guardarToolStripMenuItem
-            // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.guardarToolStripMenuItem.Text = "Guardar";
-            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // tsslStatusMessages
             // 
@@ -394,13 +326,50 @@ namespace FingerprintNetSample
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsslStatusMessage});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 151);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(552, 26);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // tsslStatusMessage
             // 
+            this.tsslStatusMessage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsslStatusMessage.Name = "tsslStatusMessage";
-            this.tsslStatusMessage.Size = new System.Drawing.Size(118, 17);
+            this.tsslStatusMessage.Size = new System.Drawing.Size(159, 21);
             this.tsslStatusMessage.Text = "toolStripStatusLabel1";
             // 
-            // RegistroHuella
+            // prgbMatching
+            // 
+            this.prgbMatching.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.prgbMatching.Location = new System.Drawing.Point(-9, 87);
+            this.prgbMatching.Maximum = 200;
+            this.prgbMatching.Minimum = 0;
+            this.prgbMatching.Name = "prgbMatching";
+            this.prgbMatching.ProgressBarColor = System.Drawing.Color.Blue;
+            this.prgbMatching.Size = new System.Drawing.Size(549, 23);
+            this.prgbMatching.Step = 0;
+            this.prgbMatching.TabIndex = 1;
+            this.prgbMatching.Value = 0;
+            // 
+            // prgbQuality
+            // 
+            this.prgbQuality.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.prgbQuality.Location = new System.Drawing.Point(3, 20);
+            this.prgbQuality.Maximum = 100;
+            this.prgbQuality.Minimum = 0;
+            this.prgbQuality.Name = "prgbQuality";
+            this.prgbQuality.ProgressBarColor = System.Drawing.Color.WhiteSmoke;
+            this.prgbQuality.Size = new System.Drawing.Size(549, 23);
+            this.prgbQuality.Step = 0;
+            this.prgbQuality.TabIndex = 0;
+            this.prgbQuality.Value = 0;
+            // 
+            // RegistrosES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -411,10 +380,10 @@ namespace FingerprintNetSample
             this.MaximumSize = new System.Drawing.Size(568, 576);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(568, 576);
-            this.Name = "RegistroHuella";
+            this.Name = "RegistrosES";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registro de huella";
+            this.Text = "Registro Entradas y  Salidas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -429,8 +398,6 @@ namespace FingerprintNetSample
             this.panel3.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,13 +416,9 @@ namespace FingerprintNetSample
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblQuality;
-//        private System.Windows.Forms.ProgressBar prgbMatching;
-        private ColorProgressBar prgbMatching;
+        //        private System.Windows.Forms.ProgressBar prgbMatching;
         private ColorProgressBar prgbQuality;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripStatusLabel tsslStatusMessages;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         
@@ -470,17 +433,18 @@ namespace FingerprintNetSample
         private System.Windows.Forms.ToolStripMenuItem enrollToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem startEnrollToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblThreshold;      
         private System.Windows.Forms.ToolStripMenuItem saveImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.Label lblThreshold2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ListView lvwFPReaders;
-        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.Label lblThreshold2;
+        private System.Windows.Forms.Label lblThreshold;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private ColorProgressBar prgbMatching;
+        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsslStatusMessage;
 
     }

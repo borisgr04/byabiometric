@@ -71,6 +71,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\GriauleFingerprintLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>packages\MySql.Data.6.9.3\lib\net45\MySql.Data.dll</HintPath>
@@ -81,14 +83,21 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bd_esDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bd_esDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ColorProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +109,24 @@
     </Compile>
     <Compile Include="Consolidation.Designer.cs">
       <DependentUpon>Consolidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroESCedula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroESCedula.Designer.cs">
+      <DependentUpon>RegistroESCedula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrosES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrosES.Designer.cs">
+      <DependentUpon>RegistrosES.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistroHuella.cs">
       <SubType>Form</SubType>
@@ -156,6 +183,12 @@
     <Compile Include="NuevaPersona.Designer.cs">
       <DependentUpon>NuevaPersona.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="VerifyDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +204,16 @@
     <EmbeddedResource Include="Consolidation.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Consolidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroESCedula.resx">
+      <DependentUpon>RegistroESCedula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrosES.resx">
+      <DependentUpon>RegistrosES.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistroHuella.resx">
       <DependentUpon>RegistroHuella.cs</DependentUpon>
@@ -193,6 +236,10 @@
     <EmbeddedResource Include="NuevaPersona.resx">
       <DependentUpon>NuevaPersona.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Reporte.resx">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VerifyDialog.resx">
       <SubType>Designer</SubType>
       <DependentUpon>VerifyDialog.cs</DependentUpon>
@@ -214,6 +261,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="bd_esDataSet.xsc">
+      <DependentUpon>bd_esDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bd_esDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bd_esDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bd_esDataSet.xss">
+      <DependentUpon>bd_esDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DB\AEF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -228,6 +286,8 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BLL.mEntradasSalidas.datasource" />
+    <None Include="Properties\DataSources\BLL.mPersonas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
