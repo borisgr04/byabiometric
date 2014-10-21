@@ -4,9 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bd_esModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bd_esModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="bd_esModelStoreContainer">
           <EntitySet Name="enroll" EntityType="bd_esModel.Store.enroll" store:Type="Tables" Schema="bd_es" />
+          <EntitySet Name="es_entradassalidas" EntityType="bd_esModel.Store.es_entradassalidas" store:Type="Tables" Schema="bd_es" />
           <EntitySet Name="es_terceros" EntityType="bd_esModel.Store.es_terceros" store:Type="Tables" Schema="bd_es" />
         </EntityContainer>
         <EntityType Name="enroll">
@@ -17,6 +18,19 @@
           <Property Name="quality" Type="int" />
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
+        <EntityType Name="es_entradassalidas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idTercero" Type="varchar" MaxLength="11" />
+          <Property Name="FechaEntrada" Type="datetime" />
+          <Property Name="FechaSalida" Type="datetime" />
+          <Property Name="Estado" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6035: La relación 'ñkw' tiene columnas que no son parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
+      -->
         <EntityType Name="es_terceros">
           <Key>
             <PropertyRef Name="terceroid" />
@@ -31,14 +45,14 @@
           <Property Name="correo" Type="varchar" MaxLength="45" />
           <Property Name="indice_id" Type="int" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bd_esModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="bd_esEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="enroll" EntityType="bd_esModel.enroll" />
           <EntitySet Name="es_terceros" EntityType="bd_esModel.es_terceros" />
+          <EntitySet Name="es_entradassalidas" EntityType="bd_esModel.es_entradassalidas" />
         </EntityContainer>
         <EntityType Name="enroll">
           <Key>
@@ -61,6 +75,16 @@
           <Property Name="telefono" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="correo" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="indice_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="es_entradassalidas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="idTercero" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaEntrada" />
+          <Property Type="DateTime" Name="FechaSalida" />
+          <Property Type="String" Name="Estado" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -88,6 +112,17 @@
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
                 <ScalarProperty Name="correo" ColumnName="correo" />
                 <ScalarProperty Name="indice_id" ColumnName="indice_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="es_entradassalidas">
+            <EntityTypeMapping TypeName="bd_esModel.es_entradassalidas">
+              <MappingFragment StoreEntitySet="es_entradassalidas">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+                <ScalarProperty Name="FechaEntrada" ColumnName="FechaEntrada" />
+                <ScalarProperty Name="idTercero" ColumnName="idTercero" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

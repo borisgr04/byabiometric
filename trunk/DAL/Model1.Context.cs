@@ -27,5 +27,6 @@ namespace DAL
     
         public DbSet<enroll> enroll { get; set; }
         public DbSet<es_terceros> es_terceros { get; set; }
+        public DbSet<es_entradassalidas> es_entradassalidas { get; set; }
     }
 }

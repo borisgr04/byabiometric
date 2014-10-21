@@ -18,7 +18,6 @@ namespace BLL
             Mapper.CreateMap<es_terceros, es_tercerosDto>();
             Mapper.CreateMap<es_tercerosDto, es_terceros>();
         }
-
         public List<es_tercerosDto> Gets()
         {
             List<es_tercerosDto> lrPersonas = new List<es_tercerosDto>();
@@ -29,7 +28,6 @@ namespace BLL
             }
             return lrPersonas;
         }
-
         public es_tercerosDto GetPorIdHuella(int IdHuella)
         {
             es_tercerosDto rPersonas = new es_tercerosDto();
@@ -40,14 +38,12 @@ namespace BLL
             }
             return rPersonas;
         }
-
         public ByARpt Insert(es_tercerosDto Reg)
         {
             cmdInsert o = new cmdInsert();
             o.oDto = Reg;
             return o.Enviar();
         }
-
         public ByARpt AsignarCodigoHuellaPersona(string idPersona, int idHuella)
         {
             ByARpt res = new ByARpt();
@@ -78,14 +74,12 @@ namespace BLL
             }
             return res;
         }
-
         public ByARpt Update(es_tercerosDto Reg)
         {
             cmdUpdate o = new cmdUpdate();
             o.oDto = Reg;
             return o.Enviar();
         }
-
         class cmdInsert : absTemplate
         {
             public es_tercerosDto oDto { get; set; }
@@ -112,7 +106,6 @@ namespace BLL
             }
             #endregion
         }
-
         class cmdUpdate : absTemplate
         {
             public es_tercerosDto oDto { get; set; }

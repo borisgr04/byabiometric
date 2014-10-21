@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="absTemplate.cs" />
     <Compile Include="mEnroll.cs" />
+    <Compile Include="mEntradasSalidas.cs" />
     <Compile Include="mPersonas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
