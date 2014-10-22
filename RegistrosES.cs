@@ -11,6 +11,7 @@ using FingerprintNetSample.DB;
 using BLL;
 using ByA;
 using Entidades;
+using System.IO;
 
 namespace FingerprintNetSample
 {
@@ -28,14 +29,17 @@ namespace FingerprintNetSample
             //fingerPrint.onImage += new ImageEventHandler(on_consolidate);
             fopt = new formOption();
         }
+        public string mens;
         //private bool consolidate = false;
         private bool PermisoGuardar = true;
+        delegate void MyDelegado(string text);
         private formOption fopt;
         private string idPersonaGlobal;
         private int idHuellaPersonaGlobal;
         private FingerprintCore fingerPrint;
         private GriauleFingerprintLibrary.DataTypes.FingerprintRawImage rawImage;
         GriauleFingerprintLibrary.DataTypes.FingerprintTemplate _template;
+        byte[] foto;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -45,6 +49,7 @@ namespace FingerprintNetSample
 
                 fingerPrint.Initialize();
 
+                timer1.Start();
 
                 fingerPrint.CaptureInitialize();
 
@@ -97,36 +102,36 @@ namespace FingerprintNetSample
         private delegate void delSetFingerStatus(string readerName, int status);
         private void SetFingerStatus(string readerName,int status )
         {
-            if (lvwFPReaders.InvokeRequired == true)
-            {
-                this.Invoke(new delSetFingerStatus(SetFingerStatus), new object[] { readerName, status });
-            }
-            else 
-            {
-                ListViewItem[] listItens = lvwFPReaders.Items.Find(readerName, false);
-                System.Threading.Thread.BeginCriticalRegion();
-                foreach (ListViewItem item in listItens) 
-                {
-                    switch (status) 
-                    {
-                        case 0:
-                            {
-                                item.ImageIndex = 0;
+            //if (lvwFPReaders.InvokeRequired == true)
+            //{
+            //    this.Invoke(new delSetFingerStatus(SetFingerStatus), new object[] { readerName, status });
+            //}
+            //else 
+            //{
+            //    ListViewItem[] listItens = lvwFPReaders.Items.Find(readerName, false);
+            //    System.Threading.Thread.BeginCriticalRegion();
+            //    foreach (ListViewItem item in listItens) 
+            //    {
+            //        switch (status) 
+            //        {
+            //            case 0:
+            //                {
+            //                    item.ImageIndex = 0;
                                 
-                            } break;
-                        case 1:
-                            {
-                                item.ImageIndex = 1;
-                            } break;
-                        case 2: 
-                            {
-                                item.ImageIndex = 2;
-                            } break;
-                    }
-                }
-                System.Threading.Thread.Sleep(300);
-                System.Threading.Thread.EndCriticalRegion();
-            }
+            //                } break;
+            //            case 1:
+            //                {
+            //                    item.ImageIndex = 1;
+            //                } break;
+            //            case 2: 
+            //                {
+            //                    item.ImageIndex = 2;
+            //                } break;
+            //        }
+            //    }
+            //    System.Threading.Thread.Sleep(300);
+            //    System.Threading.Thread.EndCriticalRegion();
+            //}
         }
 
         void fingerPrint_onFinger(object source, GriauleFingerprintLibrary.Events.FingerEventArgs fe)
@@ -174,24 +179,24 @@ namespace FingerprintNetSample
         private delegate void DelSetLvwFPReaders(string readerName, int op);
         private void SetLvwFPReaders(string readerName, int op) 
         {
-            if (lvwFPReaders.InvokeRequired == true)
-            {
-                this.Invoke(new DelSetLvwFPReaders(SetLvwFPReaders), new object[] {readerName, op });
-            }
-            else 
-            {
-                switch (op) 
-                {
-                    case 0: 
-                            {
-                                lvwFPReaders.Items.Add(readerName, readerName, 1);                       
-                            } break;
-                    case 1: 
-                            {
-                                lvwFPReaders.Items.RemoveByKey(readerName);                
-                            } break;
-                }
-            }
+            //if (lvwFPReaders.InvokeRequired == true)
+            //{
+            //    this.Invoke(new DelSetLvwFPReaders(SetLvwFPReaders), new object[] {readerName, op });
+            //}
+            //else 
+            //{
+            //    switch (op) 
+            //    {
+            //        case 0: 
+            //                {
+            //                    //lvwFPReaders.Items.Add(readerName, readerName, 1);                       
+            //                } break;
+            //        case 1: 
+            //                {
+            //                    //lvwFPReaders.Items.RemoveByKey(readerName);                
+            //                } break;
+            //    }
+            //}
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -202,6 +207,8 @@ namespace FingerprintNetSample
                 fingerPrint.Finalizer();
             }
             catch { }
+
+            Application.Exit();
         }
 
         private void ExtractTemplate() 
@@ -312,13 +319,17 @@ namespace FingerprintNetSample
                             if (Identify(testTemplate, out score))
                             {
                                 SetMatchBar(score, Color.SeaGreen);
-                                es_tercerosDto tercero =  GetPersonaId(item.ID);
+                                es_tercerosFotoDto tercero =  GetPersonaId(item.ID);
                                 string NombrePersona = tercero.nombre;
                                 DateTime hora = DateTime.Now;
                                 mEntradasSalidas objES = new mEntradasSalidas();
                                 ByARpt respuesta = objES.NuevoRegistro(tercero.terceroid);
-                                SetStatusMessage(respuesta.Mensaje + ": " + NombrePersona + " Hora: " + hora);
+                                foto = tercero.foto;
+                                setMostrar(tercero.nombre, respuesta.Mensaje, hora.ToString());
+                                
+                                //SetStatusMessage(respuesta.Mensaje + ": " + NombrePersona + " Hora: " + hora);
                                 DisplayImage(_template, true);
+
                                 return;
                             }
                             else
@@ -350,24 +361,64 @@ namespace FingerprintNetSample
             }
         }
 
-        private es_tercerosDto GetPersonaId(int idHuella)
+        private void setMostrar(string persona, string estado,string Hora)
+        {
+            MyDelegado MD = new MyDelegado(MostraMensajeEstado);
+            this.Invoke(MD, new object[] { estado });
+
+            MyDelegado MD2 = new MyDelegado(MostraMensajeNombre);
+            this.Invoke(MD2, new object[] { persona });
+
+            MyDelegado MD3 = new MyDelegado(MostraMensajeHora);
+            this.Invoke(MD3, new object[] { Hora });
+
+            MyDelegado MD4 = new MyDelegado(MostraMensajeFoto);
+            this.Invoke(MD4, new object[] { "" });
+
+
+        }
+
+        private void MostraMensajeEstado(string estado)
+        {
+            txtEstado3.Text = estado;
+        }
+
+        private void MostraMensajeNombre(string fecha)
+        {
+            txtNombre.Text = fecha;
+        }
+
+        private void MostraMensajeHora(string hora)
+        {
+            txtFechaHora.Text = hora;
+        }
+
+        private void MostraMensajeFoto(string cadena)
+        {
+            byte[] foto2 = foto;
+            MemoryStream ms = new MemoryStream(foto2);
+            fotoPersona.Image = Image.FromStream(ms);            
+        }
+
+        private es_tercerosFotoDto GetPersonaId(int idHuella)
         {
             mPersonas objPersonas = new mPersonas();
-            es_tercerosDto persona = objPersonas.GetPorIdHuella(idHuella);
+            es_tercerosFotoDto persona = objPersonas.GetPorIdHuella(idHuella);
             return persona;
         }
 
         private delegate void delSetStatusMessage(string message);
         private void SetStatusMessage(string message) 
         {
-            if (statusStrip1.InvokeRequired == true)
-            {
-                this.Invoke(new delSetStatusMessage(SetStatusMessage), new object[] { message });
-            }
-            else
-            {
-                tsslStatusMessage.Text = message;
-            }
+
+            //if (statusStrip1.InvokeRequired == true)
+            //{
+            //    this.Invoke(new delSetStatusMessage(SetStatusMessage), new object[] { message });
+            //}
+            //else
+            //{
+            //    tsslStatusMessage.Text = message;
+            //}
         }
 
         private bool Identify(GriauleFingerprintLibrary.DataTypes.FingerprintTemplate testTemplate, out int score) 
@@ -703,6 +754,49 @@ namespace FingerprintNetSample
             catch { }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            setMostrar("", "", "");
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new delSetImage(SetImage), new object[] { null });
+            }
+            else
+            {
+                pictureBox1.Image = null;
+            }
 
+            if (prgbQuality.InvokeRequired == true)
+            {
+                this.Invoke(new delsetQuality(SetQualityBar), new object[] { 0 });
+            }
+            else
+            {
+                prgbQuality.ProgressBarColor = System.Drawing.Color.Gray;
+                prgbQuality.Value = 0;
+            }
+
+            if (prgbMatching.InvokeRequired == true)
+            {
+                this.Invoke(new delsetMatch(SetMatchBar), new object[] { 0, 0});
+            }
+            else
+            {
+                prgbMatching.Value = 0;
+                prgbMatching.ProgressBarColor = System.Drawing.Color.Gray;
+            }
+
+            this.fotoPersona.Image = FingerprintNetSample.Properties.Resources.person;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

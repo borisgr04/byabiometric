@@ -51,31 +51,40 @@
             // 
             // btnRestablecer
             // 
-            this.btnRestablecer.Location = new System.Drawing.Point(138, 338);
+            this.btnRestablecer.Image = global::FingerprintNetSample.Properties.Resources.gnome_edit_clear__1_;
+            this.btnRestablecer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRestablecer.Location = new System.Drawing.Point(131, 329);
             this.btnRestablecer.Name = "btnRestablecer";
-            this.btnRestablecer.Size = new System.Drawing.Size(75, 33);
+            this.btnRestablecer.Size = new System.Drawing.Size(102, 68);
             this.btnRestablecer.TabIndex = 26;
             this.btnRestablecer.Text = "Restablecer";
+            this.btnRestablecer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRestablecer.UseVisualStyleBackColor = true;
             this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(219, 338);
+            this.btnCancelar.Image = global::FingerprintNetSample.Properties.Resources.back_2;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(239, 329);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 33);
+            this.btnCancelar.Size = new System.Drawing.Size(102, 68);
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(57, 338);
+            this.btnGuardar.Image = global::FingerprintNetSample.Properties.Resources.save;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(24, 329);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 33);
+            this.btnGuardar.Size = new System.Drawing.Size(101, 68);
             this.btnGuardar.TabIndex = 24;
             this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -227,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 397);
+            this.ClientSize = new System.Drawing.Size(373, 407);
             this.Controls.Add(this.btnRestablecer);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);

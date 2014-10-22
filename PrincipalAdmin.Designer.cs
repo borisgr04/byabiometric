@@ -33,6 +33,7 @@
             this.registroEntradaYSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiosDeContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,8 @@
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroEntradaYSalidaToolStripMenuItem,
             this.reporteToolStripMenuItem,
-            this.cambiosDeContraseñaToolStripMenuItem});
+            this.cambiosDeContraseñaToolStripMenuItem,
+            this.cerrarToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -77,6 +79,13 @@
             this.cambiosDeContraseñaToolStripMenuItem.Name = "cambiosDeContraseñaToolStripMenuItem";
             this.cambiosDeContraseñaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.cambiosDeContraseñaToolStripMenuItem.Text = "Cambios de contraseña";
+            // 
+            // cerrarToolStripMenuItem
+            // 
+            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.cerrarToolStripMenuItem.Text = "Salir";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // PrincipalAdmin
             // 
@@ -104,5 +113,6 @@
         private System.Windows.Forms.ToolStripMenuItem registroEntradaYSalidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiosDeContraseñaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
     }
 }

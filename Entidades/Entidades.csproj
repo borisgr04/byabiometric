@@ -42,6 +42,7 @@
     <Compile Include="es_entradassalidasDto.cs" />
     <Compile Include="es_rtpLogin.cs" />
     <Compile Include="es_tercerosDto.cs" />
+    <Compile Include="es_tercerosFotoDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -47,6 +47,11 @@ namespace FingerprintNetSample
                         PrincipalAdmin vistaPrincipal = new PrincipalAdmin();
                         vistaPrincipal.ShowDialog();
                         break;
+                    case "entsal":
+                        this.Hide();
+                        RegistrosES from = new RegistrosES();
+                        from.Show();
+                        break;
                 }
             }
             else
