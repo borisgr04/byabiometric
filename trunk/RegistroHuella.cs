@@ -348,10 +348,10 @@ namespace FingerprintNetSample
             }
         }
 
-        private es_tercerosDto GetPersonaId(int idHuella)
+        private es_tercerosFotoDto GetPersonaId(int idHuella)
         {
             mPersonas objPersonas = new mPersonas();
-            es_tercerosDto persona = objPersonas.GetPorIdHuella(idHuella);
+            es_tercerosFotoDto persona = objPersonas.GetPorIdHuella(idHuella);
             return persona;
         }
 

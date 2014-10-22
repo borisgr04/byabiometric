@@ -22,5 +22,6 @@ namespace DAL
         public string telefono { get; set; }
         public string correo { get; set; }
         public Nullable<int> indice_id { get; set; }
+        public byte[] foto { get; set; }
     }
 }

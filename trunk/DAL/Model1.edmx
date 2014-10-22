@@ -45,6 +45,7 @@
           <Property Name="telefono" Type="varchar" MaxLength="45" />
           <Property Name="correo" Type="varchar" MaxLength="45" />
           <Property Name="indice_id" Type="int" />
+          <Property Name="foto" Type="longblob" />
         </EntityType>
         <EntityType Name="usuarios">
           <Key>
@@ -86,6 +87,7 @@
           <Property Name="telefono" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="correo" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="indice_id" Type="Int32" />
+          <Property Type="Binary" Name="foto" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="es_entradassalidas">
           <Key>
@@ -124,6 +126,7 @@
           <EntitySetMapping Name="es_terceros">
             <EntityTypeMapping TypeName="bd_esModel.es_terceros">
               <MappingFragment StoreEntitySet="es_terceros">
+                <ScalarProperty Name="foto" ColumnName="foto" />
                 <ScalarProperty Name="terceroid" ColumnName="terceroid" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />

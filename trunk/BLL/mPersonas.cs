@@ -16,6 +16,7 @@ namespace BLL
         public mPersonas()
         {
             Mapper.CreateMap<es_terceros, es_tercerosDto>();
+            Mapper.CreateMap<es_terceros, es_tercerosFotoDto>();
             Mapper.CreateMap<es_tercerosDto, es_terceros>();
         }
         public List<es_tercerosDto> Gets()
@@ -28,9 +29,9 @@ namespace BLL
             }
             return lrPersonas;
         }
-        public es_tercerosDto GetPorIdHuella(int IdHuella)
+        public es_tercerosFotoDto GetPorIdHuella(int IdHuella)
         {
-            es_tercerosDto rPersonas = new es_tercerosDto();
+            es_tercerosFotoDto rPersonas = new es_tercerosFotoDto();
             using (ctx = new bd_esEntities())
             {
                 es_terceros lPersonas = ctx.es_terceros.Where(t => t.indice_id == IdHuella).FirstOrDefault();

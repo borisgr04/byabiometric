@@ -31,6 +31,11 @@ namespace FingerprintNetSample
             frm.Show();
         }
 
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
        
 
 
