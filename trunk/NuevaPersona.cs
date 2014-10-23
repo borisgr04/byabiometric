@@ -11,6 +11,7 @@ using AForge.Video.DirectShow;
 using ByA;
 using BLL;
 using Entidades;
+using System.IO;
 
 namespace FingerprintNetSample
 {
@@ -31,7 +32,7 @@ namespace FingerprintNetSample
         {
             ByARpt res = new ByARpt();
 
-            es_tercerosDto Persona = new es_tercerosDto();
+            es_tercerosFotoDto Persona = new es_tercerosFotoDto();
             Persona.terceroid = txtIdentificacion.Text;
             Persona.tipodoc = cboTipoDocumento.Text;
             Persona.tipoper = cboTipoPersona.Text;
@@ -40,8 +41,12 @@ namespace FingerprintNetSample
             Persona.correo = txtCorreo.Text;
             Persona.nombre = txtNombre.Text;
 
+            MemoryStream ms = new MemoryStream();
+            pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            Persona.foto = ms.ToArray();
+
             mPersonas objTercero = new mPersonas();
-            res = objTercero.Insert(Persona);
+            res = objTercero.InsertFoto(Persona);
             MessageBox.Show(res.Mensaje);
             if (res.Error == false)
             {
@@ -50,6 +55,11 @@ namespace FingerprintNetSample
         }
 
         private void NuevaPersona_Load(object sender, EventArgs e)
+        {
+            IniciarVideo();
+        }
+
+        private void IniciarVideo()
         {
             if (existenDispositivos)
             {
@@ -115,6 +125,15 @@ namespace FingerprintNetSample
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (fuenteDeVideo != null)
+            {
+                if (fuenteDeVideo.IsRunning)
+                {
+                    fuenteDeVideo.SignalToStop();
+                    fuenteDeVideo = null;
+                }
+            }
+
             OpenFileDialog abrir = new OpenFileDialog();
             abrir.Filter = "Archivos JPEG(*.jpg)|*.jpg";
             abrir.InitialDirectory = "c:/users/orley/desktop";
@@ -129,6 +148,29 @@ namespace FingerprintNetSample
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            if (fuenteDeVideo != null)
+            {
+                if (fuenteDeVideo.IsRunning)
+                {
+                    pictureBox1.Image = pictureBox1.Image;
+                }
+                if (fuenteDeVideo.IsRunning)
+                {
+                    fuenteDeVideo.SignalToStop();
+                    fuenteDeVideo = null;
+                }
+            }
+            fotografiaHecha = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            IniciarVideo();
         }
     }
 }
