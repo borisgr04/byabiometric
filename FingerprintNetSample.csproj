@@ -342,6 +342,7 @@
     <None Include="Resources\person.png" />
     <None Include="Resources\up.png" />
     <None Include="Resources\webcam.png" />
+    <None Include="Resources\camera.png" />
     <Content Include="sample.ico" />
   </ItemGroup>
   <ItemGroup />
