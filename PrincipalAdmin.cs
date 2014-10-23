@@ -36,6 +36,23 @@ namespace FingerprintNetSample
             Application.Exit();
         }
 
+        private void PrincipalAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void administradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CambioPassword from = new CambioPassword("Contraseña administrador");
+            from.Show();
+        }
+
+        private void entradasSalidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CambioPassword from = new CambioPassword("Contraseña Entradas/Salidas");
+            from.Show();
+        }
+
        
 
 

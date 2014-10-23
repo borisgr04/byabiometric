@@ -31,5 +31,35 @@ namespace BLL
             }
             return res;
         }
+
+        public ByARpt CambioContraseña(string uRol, string antiguoPassword, string newPassword)
+        {
+            ByARpt res = new ByARpt();
+            using (ctx = new bd_esEntities())
+            {
+                usuarios usuario = ctx.usuarios.Where(t => t.Usuario == uRol).FirstOrDefault();
+                if (usuario.Contraseña == antiguoPassword)
+                {
+                    usuario.Contraseña = newPassword;
+                    try
+                    {
+                        ctx.SaveChanges();
+                        res.Error = false;
+                        res.Mensaje = "Se cambio contraseña";
+                    }
+                    catch
+                    {
+                        res.Error = true;
+                        res.Mensaje = "No se pudo cambiar contraseña...";
+                    }
+                }
+                else
+                {
+                    res.Error = true;
+                    res.Mensaje = "La contraseña antigua no es correcta...";
+                }
+            }
+            return res;
+        }
     }
 }

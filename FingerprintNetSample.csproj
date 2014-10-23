@@ -93,6 +93,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambioPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioPassword.Designer.cs">
+      <DependentUpon>CambioPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColorProgressBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="PrincipalAdmin.Designer.cs">
       <DependentUpon>PrincipalAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrincipalES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrincipalES.Designer.cs">
+      <DependentUpon>PrincipalES.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistroESCedula.cs">
       <SubType>Form</SubType>
@@ -198,6 +210,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CambioPassword.resx">
+      <DependentUpon>CambioPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorProgressBar.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ColorProgressBar.cs</DependentUpon>
@@ -211,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrincipalAdmin.resx">
       <DependentUpon>PrincipalAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrincipalES.resx">
+      <DependentUpon>PrincipalES.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistroESCedula.resx">
       <DependentUpon>RegistroESCedula.cs</DependentUpon>

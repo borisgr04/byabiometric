@@ -49,7 +49,7 @@ namespace FingerprintNetSample
 
                 fingerPrint.Initialize();
 
-                timer1.Start();
+                
 
                 fingerPrint.CaptureInitialize();
 
@@ -66,17 +66,17 @@ namespace FingerprintNetSample
 
         private void SetLaberThreshold() 
         {
-            int thresholdId, rotationMaxId;
-            fingerPrint.GetIdentifyParameters(out thresholdId, out rotationMaxId);
+           // int thresholdId, rotationMaxId;
+           // fingerPrint.GetIdentifyParameters(out thresholdId, out rotationMaxId);
 
-           // int relationPos = (thresholdId ) / 300;
+           //// int relationPos = (thresholdId ) / 300;
 
-            float percent = (float)thresholdId / (float)200;
+           // float percent = (float)thresholdId / (float)200;
             
-            int adj = (int)((prgbMatching.Right - prgbMatching.Left) * percent);
+           // int adj = (int)((prgbMatching.Right - prgbMatching.Left) * percent);
 
-            lblThreshold.Left = adj;
-            lblThreshold2.Left = adj - (lblThreshold2.Width/2);
+           // //lblThreshold.Left = adj;
+           // lblThreshold2.Left = adj - (lblThreshold2.Width/2);
         }
 
         private void fingerPrint_onImage(object source, GriauleFingerprintLibrary.Events.ImageEventArgs ie)
@@ -375,7 +375,15 @@ namespace FingerprintNetSample
             MyDelegado MD4 = new MyDelegado(MostraMensajeFoto);
             this.Invoke(MD4, new object[] { "" });
 
+            MyDelegado MD5 = new MyDelegado(iniciarTimerBorrado);
+            this.Invoke(MD5, new object[] { "" });
 
+
+        }
+
+        private void iniciarTimerBorrado(string cadena)
+        {
+            timer1.Start();
         }
 
         private void MostraMensajeEstado(string estado)
@@ -385,7 +393,7 @@ namespace FingerprintNetSample
 
         private void MostraMensajeNombre(string fecha)
         {
-            txtNombre.Text = fecha;
+            txtNombre3.Text = fecha;
         }
 
         private void MostraMensajeHora(string hora)
@@ -396,8 +404,15 @@ namespace FingerprintNetSample
         private void MostraMensajeFoto(string cadena)
         {
             byte[] foto2 = foto;
-            MemoryStream ms = new MemoryStream(foto2);
-            fotoPersona.Image = Image.FromStream(ms);            
+            if (foto2.Length == 0)
+            {
+                fotoPersona.Image = FingerprintNetSample.Properties.Resources.person;
+            }
+            else
+            {
+                MemoryStream ms = new MemoryStream(foto2);
+                fotoPersona.Image = Image.FromStream(ms);
+            }
         }
 
         private es_tercerosFotoDto GetPersonaId(int idHuella)
@@ -795,6 +810,11 @@ namespace FingerprintNetSample
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtNombre3_Click(object sender, EventArgs e)
         {
 
         }
