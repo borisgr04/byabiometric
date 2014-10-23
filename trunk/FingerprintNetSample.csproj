@@ -60,6 +60,15 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.dll</HintPath>
@@ -331,6 +340,8 @@
     <None Include="Resources\gnome_edit_clear %281%29.png" />
     <None Include="Resources\back_2.png" />
     <None Include="Resources\person.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\webcam.png" />
     <Content Include="sample.ico" />
   </ItemGroup>
   <ItemGroup />

@@ -5,8 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using AForge.Video;
+using AForge.Video.DirectShow;
 using ByA;
 using BLL;
 using Entidades;
@@ -18,7 +19,13 @@ namespace FingerprintNetSample
         public NuevaPersona()
         {
             InitializeComponent();
+            BuscarDispositivos();
         }
+
+        private bool existenDispositivos = false;
+        private bool fotografiaHecha = false;
+        private FilterInfoCollection dispositivosDeVideo;
+        private VideoCaptureDevice fuenteDeVideo = null;
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -44,7 +51,50 @@ namespace FingerprintNetSample
 
         private void NuevaPersona_Load(object sender, EventArgs e)
         {
+            if (existenDispositivos)
+            {
+                fuenteDeVideo = new VideoCaptureDevice(dispositivosDeVideo[0].MonikerString);
+                fuenteDeVideo.NewFrame += new NewFrameEventHandler(MostrarImagen);
+                fuenteDeVideo.Start();
+            }
+            else
+            {
+                MessageBox.Show("No se encuentra ningún dispositivo de vídeo en el sistema", "Información",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                CerrarFormulario();
+            }
+        }
 
+        private void MostrarImagen(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap imagen = (Bitmap)eventArgs.Frame.Clone();
+            pictureBox1.Image = imagen;
+        }
+
+
+        private void CerrarFormulario()
+        {
+            if (fuenteDeVideo != null)
+            {
+                if (fuenteDeVideo.IsRunning)
+                {
+                    fuenteDeVideo.SignalToStop();
+                    fuenteDeVideo = null;
+                }
+            }
+
+            Dispose();
+            Close();
+        }
+
+        private void BuscarDispositivos()
+        {
+            dispositivosDeVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            if (dispositivosDeVideo.Count == 0)
+                existenDispositivos = false;
+            else
+                existenDispositivos = true;
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)
@@ -61,6 +111,24 @@ namespace FingerprintNetSample
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog abrir = new OpenFileDialog();
+            abrir.Filter = "Archivos JPEG(*.jpg)|*.jpg";
+            abrir.InitialDirectory = "c:/users/orley/desktop";
+            if (abrir.ShowDialog() == DialogResult.OK)
+            {
+                string Dir = abrir.FileName;
+                Bitmap picture = new Bitmap(Dir);
+                pictureBox1.Image = (Image)picture;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
