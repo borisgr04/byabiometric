@@ -49,7 +49,7 @@ namespace FingerprintNetSample
                         break;
                     case "entsal":
                         this.Hide();
-                        RegistrosES from = new RegistrosES();
+                        PrincipalES from = new PrincipalES();
                         from.Show();
                         break;
                 }

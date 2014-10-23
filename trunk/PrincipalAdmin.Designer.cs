@@ -30,10 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroEntradaYSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiosDeContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entradasSalidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +60,13 @@
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
+            // cerrarToolStripMenuItem
+            // 
+            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.cerrarToolStripMenuItem.Text = "Salir";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
+            // 
             // registroEntradaYSalidaToolStripMenuItem
             // 
             this.registroEntradaYSalidaToolStripMenuItem.Image = global::FingerprintNetSample.Properties.Resources.check;
@@ -75,17 +84,27 @@
             // 
             // cambiosDeContraseñaToolStripMenuItem
             // 
+            this.cambiosDeContraseñaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administradorToolStripMenuItem,
+            this.entradasSalidasToolStripMenuItem});
             this.cambiosDeContraseñaToolStripMenuItem.Image = global::FingerprintNetSample.Properties.Resources.padlock_closed;
             this.cambiosDeContraseñaToolStripMenuItem.Name = "cambiosDeContraseñaToolStripMenuItem";
             this.cambiosDeContraseñaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.cambiosDeContraseñaToolStripMenuItem.Text = "Cambios de contraseña";
             // 
-            // cerrarToolStripMenuItem
+            // administradorToolStripMenuItem
             // 
-            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.cerrarToolStripMenuItem.Text = "Salir";
-            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
+            this.administradorToolStripMenuItem.Name = "administradorToolStripMenuItem";
+            this.administradorToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.administradorToolStripMenuItem.Text = "Administrador";
+            this.administradorToolStripMenuItem.Click += new System.EventHandler(this.administradorToolStripMenuItem_Click);
+            // 
+            // entradasSalidasToolStripMenuItem
+            // 
+            this.entradasSalidasToolStripMenuItem.Name = "entradasSalidasToolStripMenuItem";
+            this.entradasSalidasToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.entradasSalidasToolStripMenuItem.Text = "Entradas/Salidas";
+            this.entradasSalidasToolStripMenuItem.Click += new System.EventHandler(this.entradasSalidasToolStripMenuItem_Click);
             // 
             // PrincipalAdmin
             // 
@@ -98,6 +117,7 @@
             this.Name = "PrincipalAdmin";
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PrincipalAdmin_FormClosed);
             this.Load += new System.EventHandler(this.PrincipalAdmin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -114,5 +134,7 @@
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiosDeContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administradorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entradasSalidasToolStripMenuItem;
     }
 }

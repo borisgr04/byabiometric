@@ -75,5 +75,10 @@ namespace FingerprintNetSample
             RegistrosES vEntradasSalidas = new RegistrosES();
             vEntradasSalidas.Show();
         }
+
+        private void gPersonas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        }
     }
 }

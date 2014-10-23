@@ -122,6 +122,7 @@
             this.Name = "gPersonas";
             this.Text = "Gestion de personas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.gPersonas_FormClosed);
             this.Load += new System.EventHandler(this.gPersonas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).EndInit();
             this.ResumeLayout(false);
