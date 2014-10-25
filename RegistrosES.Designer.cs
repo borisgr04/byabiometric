@@ -50,33 +50,41 @@ namespace FingerprintNetSample
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lstbUltimasEntradas = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEstado2 = new System.Windows.Forms.Label();
-            this.txtEstado3 = new System.Windows.Forms.Label();
             this.txtEstado = new System.Windows.Forms.Label();
+            this.fotoPersona = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtEstado3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNombre3 = new System.Windows.Forms.Label();
             this.txtFechaHora = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblQuality = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtNombre3 = new System.Windows.Forms.Label();
-            this.fotoPersona = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtHoraSistema = new System.Windows.Forms.Label();
+            this.txtFechaSistema = new System.Windows.Forms.Label();
+            this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.prgbQuality = new FingerprintNetSample.ColorProgressBar();
             this.prgbMatching = new FingerprintNetSample.ColorProgressBar();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPersona)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip2
@@ -197,13 +205,35 @@ namespace FingerprintNetSample
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(798, 360);
+            this.panel1.Size = new System.Drawing.Size(1080, 360);
             this.panel1.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lstbUltimasEntradas);
+            this.groupBox4.Location = new System.Drawing.Point(727, 12);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(341, 345);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ultimas entradas";
+            // 
+            // lstbUltimasEntradas
+            // 
+            this.lstbUltimasEntradas.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lstbUltimasEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstbUltimasEntradas.FormattingEnabled = true;
+            this.lstbUltimasEntradas.ItemHeight = 18;
+            this.lstbUltimasEntradas.Location = new System.Drawing.Point(13, 19);
+            this.lstbUltimasEntradas.Name = "lstbUltimasEntradas";
+            this.lstbUltimasEntradas.Size = new System.Drawing.Size(322, 274);
+            this.lstbUltimasEntradas.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -212,7 +242,7 @@ namespace FingerprintNetSample
             this.groupBox1.Controls.Add(this.fotoPersona);
             this.groupBox1.Location = new System.Drawing.Point(422, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 345);
+            this.groupBox1.Size = new System.Drawing.Size(299, 345);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Persona";
@@ -226,15 +256,6 @@ namespace FingerprintNetSample
             this.txtEstado2.Size = new System.Drawing.Size(0, 23);
             this.txtEstado2.TabIndex = 3;
             // 
-            // txtEstado3
-            // 
-            this.txtEstado3.AutoSize = true;
-            this.txtEstado3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado3.Location = new System.Drawing.Point(557, 314);
-            this.txtEstado3.Name = "txtEstado3";
-            this.txtEstado3.Size = new System.Drawing.Size(0, 23);
-            this.txtEstado3.TabIndex = 4;
-            // 
             // txtEstado
             // 
             this.txtEstado.AutoSize = true;
@@ -243,6 +264,46 @@ namespace FingerprintNetSample
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(0, 25);
             this.txtEstado.TabIndex = 2;
+            // 
+            // fotoPersona
+            // 
+            this.fotoPersona.Image = global::FingerprintNetSample.Properties.Resources.person;
+            this.fotoPersona.Location = new System.Drawing.Point(14, 19);
+            this.fotoPersona.Name = "fotoPersona";
+            this.fotoPersona.Size = new System.Drawing.Size(267, 262);
+            this.fotoPersona.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fotoPersona.TabIndex = 1;
+            this.fotoPersona.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.MinimumSize = new System.Drawing.Size(392, 357);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(392, 357);
+            this.panel4.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip2;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(390, 355);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(390, 359);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtEstado3
+            // 
+            this.txtEstado3.AutoSize = true;
+            this.txtEstado3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstado3.Location = new System.Drawing.Point(557, 314);
+            this.txtEstado3.Name = "txtEstado3";
+            this.txtEstado3.Size = new System.Drawing.Size(0, 23);
+            this.txtEstado3.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -255,6 +316,16 @@ namespace FingerprintNetSample
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles entrada";
+            // 
+            // txtNombre3
+            // 
+            this.txtNombre3.AutoSize = true;
+            this.txtNombre3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre3.Location = new System.Drawing.Point(21, 19);
+            this.txtNombre3.Name = "txtNombre3";
+            this.txtNombre3.Size = new System.Drawing.Size(0, 31);
+            this.txtNombre3.TabIndex = 10;
+            this.txtNombre3.Click += new System.EventHandler(this.txtNombre3_Click);
             // 
             // txtFechaHora
             // 
@@ -310,18 +381,10 @@ namespace FingerprintNetSample
             this.lblQuality.TabIndex = 10;
             this.lblQuality.Text = "Calidad de la huella";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.MinimumSize = new System.Drawing.Size(392, 357);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(392, 357);
-            this.panel4.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.lblQuality);
@@ -333,40 +396,42 @@ namespace FingerprintNetSample
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(798, 534);
+            this.panel2.Size = new System.Drawing.Size(1080, 534);
             this.panel2.TabIndex = 2;
             // 
-            // txtNombre3
+            // groupBox3
             // 
-            this.txtNombre3.AutoSize = true;
-            this.txtNombre3.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre3.Location = new System.Drawing.Point(21, 19);
-            this.txtNombre3.Name = "txtNombre3";
-            this.txtNombre3.Size = new System.Drawing.Size(0, 31);
-            this.txtNombre3.TabIndex = 10;
-            this.txtNombre3.Click += new System.EventHandler(this.txtNombre3_Click);
+            this.groupBox3.Controls.Add(this.txtHoraSistema);
+            this.groupBox3.Controls.Add(this.txtFechaSistema);
+            this.groupBox3.Location = new System.Drawing.Point(795, 378);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(249, 114);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Hora actual";
             // 
-            // fotoPersona
+            // txtHoraSistema
             // 
-            this.fotoPersona.Image = global::FingerprintNetSample.Properties.Resources.person;
-            this.fotoPersona.Location = new System.Drawing.Point(27, 19);
-            this.fotoPersona.Name = "fotoPersona";
-            this.fotoPersona.Size = new System.Drawing.Size(267, 262);
-            this.fotoPersona.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.fotoPersona.TabIndex = 1;
-            this.fotoPersona.TabStop = false;
+            this.txtHoraSistema.AutoSize = true;
+            this.txtHoraSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoraSistema.Location = new System.Drawing.Point(44, 26);
+            this.txtHoraSistema.Name = "txtHoraSistema";
+            this.txtHoraSistema.Size = new System.Drawing.Size(0, 29);
+            this.txtHoraSistema.TabIndex = 1;
             // 
-            // pictureBox1
+            // txtFechaSistema
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip2;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(390, 355);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(401, 359);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.txtFechaSistema.AutoSize = true;
+            this.txtFechaSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaSistema.Location = new System.Drawing.Point(69, 61);
+            this.txtFechaSistema.Name = "txtFechaSistema";
+            this.txtFechaSistema.Size = new System.Drawing.Size(0, 29);
+            this.txtFechaSistema.TabIndex = 0;
+            // 
+            // timerHora
+            // 
+            this.timerHora.Interval = 1000;
+            this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
             // prgbQuality
             // 
@@ -398,7 +463,7 @@ namespace FingerprintNetSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 534);
+            this.ClientSize = new System.Drawing.Size(1080, 534);
             this.Controls.Add(this.txtEstado3);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -413,15 +478,18 @@ namespace FingerprintNetSample
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPersona)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoPersona)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,6 +541,12 @@ namespace FingerprintNetSample
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label txtNombre3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ListBox lstbUltimasEntradas;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label txtFechaSistema;
+        private System.Windows.Forms.Timer timerHora;
+        private System.Windows.Forms.Label txtHoraSistema;
 
     }
 }

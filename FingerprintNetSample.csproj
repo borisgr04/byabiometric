@@ -205,12 +205,6 @@
     <Compile Include="NuevaPersona.Designer.cs">
       <DependentUpon>NuevaPersona.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportePrueba.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportePrueba.Designer.cs">
-      <DependentUpon>ReportePrueba.cs</DependentUpon>
-    </Compile>
     <Compile Include="VerifyDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,9 +261,6 @@
     <EmbeddedResource Include="NuevaPersona.resx">
       <DependentUpon>NuevaPersona.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportePrueba.resx">
-      <DependentUpon>ReportePrueba.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VerifyDialog.resx">
       <SubType>Designer</SubType>
       <DependentUpon>VerifyDialog.cs</DependentUpon>
@@ -311,6 +302,7 @@
     <None Include="Properties\DataSources\BLL.mEnroll.datasource" />
     <None Include="Properties\DataSources\BLL.mEntradasSalidas.datasource" />
     <None Include="Properties\DataSources\BLL.mPersonas.datasource" />
+    <None Include="Properties\DataSources\Entidades.es_tercerosDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -34,6 +34,7 @@ namespace FingerprintNetSample
         private bool PermisoGuardar = true;
         delegate void MyDelegado(string text);
         private formOption fopt;
+        private List<string> ultimosEventos = new List<string>();
         private string idPersonaGlobal;
         private int idHuellaPersonaGlobal;
         private FingerprintCore fingerPrint;
@@ -62,6 +63,8 @@ namespace FingerprintNetSample
                 MessageBox.Show(ex.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Stop);
                 Application.Exit();
             }
+
+            timerHora.Start();
         }
 
         private void SetLaberThreshold() 
@@ -325,10 +328,12 @@ namespace FingerprintNetSample
                                 mEntradasSalidas objES = new mEntradasSalidas();
                                 ByARpt respuesta = objES.NuevoRegistro(tercero.terceroid);
                                 foto = tercero.foto;
+                                ultimosEventos.Add(respuesta.Mensaje.Substring(0,3) + ".: " + tercero.nombre + " - " + hora.ToString().Substring(10));
                                 setMostrar(tercero.nombre, respuesta.Mensaje, hora.ToString());
-                                
                                 //SetStatusMessage(respuesta.Mensaje + ": " + NombrePersona + " Hora: " + hora);
                                 DisplayImage(_template, true);
+
+
 
                                 return;
                             }
@@ -378,7 +383,27 @@ namespace FingerprintNetSample
             MyDelegado MD5 = new MyDelegado(iniciarTimerBorrado);
             this.Invoke(MD5, new object[] { "" });
 
+            MyDelegado MD6 = new MyDelegado(MostrarUltimosEventos);
+            this.Invoke(MD6, new object[] { "" });
+        }
 
+        private void MostrarUltimosEventos(string cadena)
+        {
+            lstbUltimasEntradas.Items.Clear();
+            if (ultimosEventos.Count >= 5)
+            {
+                for (int i = ultimosEventos.Count - 1; i >= ultimosEventos.Count - 5; i--)
+                {
+                    lstbUltimasEntradas.Items.Add(ultimosEventos[i]);
+                }
+            }
+            else
+            {
+                for (int i = ultimosEventos.Count - 1; i >= 0; i--)
+                {
+                    lstbUltimasEntradas.Items.Add(ultimosEventos[i]);
+                }
+            }
         }
 
         private void iniciarTimerBorrado(string cadena)
@@ -802,6 +827,7 @@ namespace FingerprintNetSample
             }
 
             this.fotoPersona.Image = FingerprintNetSample.Properties.Resources.person;
+            timer1.Stop();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -817,6 +843,16 @@ namespace FingerprintNetSample
         private void txtNombre3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timerHora_Tick(object sender, EventArgs e)
+        {
+            DateTime hora = DateTime.Now;
+            string FechaCompleta = hora.ToString();
+            string fecha = FechaCompleta.Substring(0, 10);
+            string horastr = hora.Hour.ToString() + ":" + hora.Minute.ToString() + ":" + hora.Second.ToString();
+            txtFechaSistema.Text = fecha;
+            txtHoraSistema.Text = FechaCompleta.Substring(10);
         }
     }
 }
