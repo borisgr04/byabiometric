@@ -30,12 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroEntradaYSalidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiosDeContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradasSalidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eSPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,13 +61,6 @@
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
-            // cerrarToolStripMenuItem
-            // 
-            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
-            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.cerrarToolStripMenuItem.Text = "Salir";
-            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
-            // 
             // registroEntradaYSalidaToolStripMenuItem
             // 
             this.registroEntradaYSalidaToolStripMenuItem.Image = global::FingerprintNetSample.Properties.Resources.check;
@@ -77,6 +71,8 @@
             // 
             // reporteToolStripMenuItem
             // 
+            this.reporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eSPersonaToolStripMenuItem});
             this.reporteToolStripMenuItem.Image = global::FingerprintNetSample.Properties.Resources.xls;
             this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
             this.reporteToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
@@ -105,6 +101,20 @@
             this.entradasSalidasToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.entradasSalidasToolStripMenuItem.Text = "Entradas/Salidas";
             this.entradasSalidasToolStripMenuItem.Click += new System.EventHandler(this.entradasSalidasToolStripMenuItem_Click);
+            // 
+            // cerrarToolStripMenuItem
+            // 
+            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.cerrarToolStripMenuItem.Text = "Salir";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
+            // 
+            // eSPersonaToolStripMenuItem
+            // 
+            this.eSPersonaToolStripMenuItem.Name = "eSPersonaToolStripMenuItem";
+            this.eSPersonaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eSPersonaToolStripMenuItem.Text = "E/S Persona";
+            this.eSPersonaToolStripMenuItem.Click += new System.EventHandler(this.eSPersonaToolStripMenuItem_Click);
             // 
             // PrincipalAdmin
             // 
@@ -136,5 +146,6 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administradorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradasSalidasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eSPersonaToolStripMenuItem;
     }
 }

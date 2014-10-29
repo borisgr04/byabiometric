@@ -14,7 +14,7 @@ namespace FingerprintNetSample
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PruebaReporte());
+            Application.Run(new Login());
         }
     }
 }

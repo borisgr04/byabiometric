@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSEntradasSalidas" targetNamespace="http://tempuri.org/DSEntradasSalidas.xsd" xmlns:mstns="http://tempuri.org/DSEntradasSalidas.xsd" xmlns="http://tempuri.org/DSEntradasSalidas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSEntradasSalidas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSEntradasSalidas" msprop:Generator_UserDSName="DSEntradasSalidas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RegistroEntradasSalidasDto" msprop:Generator_TableClassName="RegistroEntradasSalidasDtoDataTable" msprop:Generator_TableVarName="tableRegistroEntradasSalidasDto" msprop:Generator_RowChangedName="RegistroEntradasSalidasDtoRowChanged" msprop:Generator_TablePropName="RegistroEntradasSalidasDto" msprop:Generator_RowDeletingName="RegistroEntradasSalidasDtoRowDeleting" msprop:Generator_RowChangingName="RegistroEntradasSalidasDtoRowChanging" msprop:Generator_RowEvHandlerName="RegistroEntradasSalidasDtoRowChangeEventHandler" msprop:Generator_RowDeletedName="RegistroEntradasSalidasDtoRowDeleted" msprop:Generator_RowClassName="RegistroEntradasSalidasDtoRow" msprop:Generator_UserTableName="RegistroEntradasSalidasDto" msprop:Generator_RowEvArgName="RegistroEntradasSalidasDtoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idTercero" msprop:Generator_ColumnVarNameInTable="columnidTercero" msprop:Generator_ColumnPropNameInRow="idTercero" msprop:Generator_ColumnPropNameInTable="idTerceroColumn" msprop:Generator_UserColumnName="idTercero" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaEntrada" msprop:Generator_ColumnVarNameInTable="columnFechaEntrada" msprop:Generator_ColumnPropNameInRow="FechaEntrada" msprop:Generator_ColumnPropNameInTable="FechaEntradaColumn" msprop:Generator_UserColumnName="FechaEntrada" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaSalida" msprop:Generator_ColumnVarNameInTable="columnFechaSalida" msprop:Generator_ColumnPropNameInRow="FechaSalida" msprop:Generator_ColumnPropNameInTable="FechaSalidaColumn" msprop:Generator_UserColumnName="FechaSalida" type="xs:string" minOccurs="0" />
+              <xs:element name="TiempoDentro" msprop:Generator_ColumnVarNameInTable="columnTiempoDentro" msprop:Generator_ColumnPropNameInRow="TiempoDentro" msprop:Generator_ColumnPropNameInTable="TiempoDentroColumn" msprop:Generator_UserColumnName="TiempoDentro" type="xs:duration" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
