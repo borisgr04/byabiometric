@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{718A04E4-94CC-4995-9968-49B1F0C92BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByA", "C:\Users\Orley\Desktop\ByA\ByA.csproj", "{29846646-2CE1-4EE3-B9EA-7BF9B50B1FED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByA", "ByA\ByA.csproj", "{29846646-2CE1-4EE3-B9EA-7BF9B50B1FED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

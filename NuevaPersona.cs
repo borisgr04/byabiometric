@@ -81,7 +81,6 @@ namespace FingerprintNetSample
             pictureBox1.Image = imagen;
         }
 
-
         private void CerrarFormulario()
         {
             if (fuenteDeVideo != null)

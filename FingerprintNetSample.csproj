@@ -389,7 +389,7 @@
       <Project>{dec01159-44ba-48f5-a632-8e1e663592fb}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Orley\Desktop\ByA\ByA.csproj">
+    <ProjectReference Include="ByA\ByA.csproj">
       <Project>{29846646-2ce1-4ee3-b9ea-7bf9b50b1fed}</Project>
       <Name>ByA</Name>
     </ProjectReference>
