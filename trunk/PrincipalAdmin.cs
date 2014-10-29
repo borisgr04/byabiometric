@@ -53,6 +53,13 @@ namespace FingerprintNetSample
             from.Show();
         }
 
+        private void eSPersonaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteEntradasSalidasPersona frm = new frmReporteEntradasSalidasPersona();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
        
 
 

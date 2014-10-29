@@ -120,6 +120,21 @@
     <Compile Include="Consolidation.Designer.cs">
       <DependentUpon>Consolidation.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\DSEntradasSalidas.cs">
+      <DependentUpon>DSEntradasSalidas.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSets\DSEntradasSalidas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSEntradasSalidas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteEntradasSalidasPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteEntradasSalidasPersona.Designer.cs">
+      <DependentUpon>frmReporteEntradasSalidasPersona.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +239,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>Consolidation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteEntradasSalidasPersona.resx">
+      <DependentUpon>frmReporteEntradasSalidasPersona.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +279,7 @@
     <EmbeddedResource Include="NuevaPersona.resx">
       <DependentUpon>NuevaPersona.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteEntradasSalidasPersona.rdlc" />
     <EmbeddedResource Include="VerifyDialog.resx">
       <SubType>Designer</SubType>
       <DependentUpon>VerifyDialog.cs</DependentUpon>
@@ -282,6 +301,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="DataSets\DSEntradasSalidas.xsc">
+      <DependentUpon>DSEntradasSalidas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSEntradasSalidas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSEntradasSalidas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DSEntradasSalidas.xss">
+      <DependentUpon>DSEntradasSalidas.xsd</DependentUpon>
+    </None>
     <None Include="DB\AEF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -303,6 +333,7 @@
     <None Include="Properties\DataSources\BLL.mEntradasSalidas.datasource" />
     <None Include="Properties\DataSources\BLL.mPersonas.datasource" />
     <None Include="Properties\DataSources\Entidades.es_tercerosDto.datasource" />
+    <None Include="Properties\DataSources\Entidades.ReportesDto.RegistroEntradasSalidasDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
