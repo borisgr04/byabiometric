@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.50333cm</Width>
+              <Width>5.30322cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.50333cm</Width>
+              <Width>5.30322cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.50333cm</Width>
+              <Width>5.30322cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -244,18 +244,19 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
-            <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
+            <TablixMember />
             <TablixMember>
               <Group Name="Detalles" />
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSEntradasSalidas</DataSetName>
         <Top>2.93688cm</Top>
-        <Height>1.38521cm</Height>
-        <Width>16.51cm</Width>
+        <Height>1.3852cm</Height>
+        <Width>15.90965cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -283,9 +284,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>0.26141cm</Top>
+        <Top>0.23467cm</Top>
+        <Left>0.29104cm</Left>
         <Height>0.99688cm</Height>
-        <Width>16.0684cm</Width>
+        <Width>15.61861cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -316,8 +318,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>1.37266cm</Top>
-        <Left>1.18745cm</Left>
+        <Top>1.40794cm</Top>
+        <Left>0.65828cm</Left>
         <Height>0.6cm</Height>
         <Width>14.30042cm</Width>
         <ZIndex>2</ZIndex>
@@ -350,8 +352,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>1.95474cm</Top>
-        <Left>1.18745cm</Left>
+        <Top>1.99002cm</Top>
+        <Left>0.65828cm</Left>
         <Height>0.6cm</Height>
         <Width>14.30042cm</Width>
         <ZIndex>3</ZIndex>
@@ -369,7 +371,7 @@
     <Height>4.54167in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>6.29675in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

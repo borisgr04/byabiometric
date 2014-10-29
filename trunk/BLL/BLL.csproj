@@ -73,6 +73,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ByA\ByA.csproj">
+      <Project>{29846646-2ce1-4ee3-b9ea-7bf9b50b1fed}</Project>
+      <Name>ByA</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{718a04e4-94cc-4995-9968-49b1f0c92bc0}</Project>
       <Name>DAL</Name>
@@ -80,10 +84,6 @@
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{f2fc58bf-031b-427a-b932-fd0365e84198}</Project>
       <Name>Entidades</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Orley\Desktop\ByA\ByA.csproj">
-      <Project>{29846646-2ce1-4ee3-b9ea-7bf9b50b1fed}</Project>
-      <Name>ByA</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

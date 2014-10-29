@@ -399,7 +399,7 @@ namespace FingerprintNetSample.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RegistroEntradasSalidasDtoRow AddRegistroEntradasSalidasDtoRow(string idTercero, string nombre, string FechaEntrada, string FechaSalida, System.TimeSpan TiempoDentro) {
+            public RegistroEntradasSalidasDtoRow AddRegistroEntradasSalidasDtoRow(string idTercero, string nombre, string FechaEntrada, string FechaSalida, decimal TiempoDentro) {
                 RegistroEntradasSalidasDtoRow rowRegistroEntradasSalidasDtoRow = ((RegistroEntradasSalidasDtoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idTercero,
@@ -447,7 +447,7 @@ namespace FingerprintNetSample.DataSets {
                 base.Columns.Add(this.columnFechaEntrada);
                 this.columnFechaSalida = new global::System.Data.DataColumn("FechaSalida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaSalida);
-                this.columnTiempoDentro = new global::System.Data.DataColumn("TiempoDentro", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnTiempoDentro = new global::System.Data.DataColumn("TiempoDentro", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTiempoDentro);
             }
             
@@ -659,10 +659,10 @@ namespace FingerprintNetSample.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.TimeSpan TiempoDentro {
+            public decimal TiempoDentro {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableRegistroEntradasSalidasDto.TiempoDentroColumn]));
+                        return ((decimal)(this[this.tableRegistroEntradasSalidasDto.TiempoDentroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'TiempoDentro\' de la tabla \'RegistroEntradasSalidasDto\' es" +
