@@ -12,6 +12,6 @@ namespace Entidades.ReportesDto
         public string idTercero { get; set; }
         public string FechaEntrada { get; set; }
         public string FechaSalida { get; set; }
-        public decimal TiempoDentro { get; set; }
+        public double TiempoDentro { get; set; }
     }
 }
