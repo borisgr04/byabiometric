@@ -42,9 +42,11 @@ namespace BLL
                                 DateTime FE = (DateTime)item.FechaEntrada;
                                 DateTime FS = (DateTime)item.FechaSalida;
                                 TimeSpan Duracion = FS - FE;
-                                registro.TiempoDentro = Duracion.Hours + (Duracion.Minutes / 60) + (Duracion.Seconds / 3600);
+                                double segundos = (double) Duracion.Seconds / 3600;
+                                double minutes = (double) Duracion.Minutes / 60;
 
-                                lrRES.Add(registro);
+                                registro.TiempoDentro = Duracion.Hours + minutes + segundos;
+                                if (registro.TiempoDentro > 0) lrRES.Add(registro);                               
                             }
                         }
                     }
