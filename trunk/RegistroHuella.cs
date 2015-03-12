@@ -325,11 +325,8 @@ namespace FingerprintNetSample
                                 SetStatusMessage("No se encontro huella");
                             }
                     }
-
-                        SetMatchBar(0, Color.Gray);
-                        SetStatusMessage("Template Unmatched");
-
-                    
+                    SetMatchBar(0, Color.Gray);
+                    SetStatusMessage("Template Unmatched");                   
                 }
             }
             catch (FingerprintException ge)
